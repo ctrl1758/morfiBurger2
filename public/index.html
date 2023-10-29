@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/> -->
+
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <!-- <script src="https://www.mercadopago.com/v2/security.js" view=""></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css"> -->
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morfi Burger🍔</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/styles2.css">
+    <style>
+        #NoDelivery {
+            display: none;
+        }
+
+        #map {
+            height: 100%;
+            height: 150px;
+            border-radius: 10px;
+        }
+
+        .noch-menu {
+            height: 24vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero {
+            height: 25vh;
+            background-color: white;
+            /* margin-top: 10px; */
+        }
+
+        .categorias {
+            height: 50vh;
+            background-color: white;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .categorias .row .col {
+            border: solid;
+        }
+
+        .contactos svg {
+            color: #6c757d;
+            /* border: solid; */
+            width: 25px;
+            /* border-radius: 30px; */
+            margin-left: 12px;
+        }
+
+        .direccion {
+            text-align: end;
+            padding-top: 12px;
+            max-width: 80%;
+        }
+
+        .direccion a {
+            color: #6c757d;
+            text-decoration: none;
+        }
+
+        .myLabel {
+            padding: 5px 10px;
+            border-radius: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .cerrado {
+            color: red;
+            background: #ff000047;
+        }
+
+        .abierto {
+            color: green;
+            background: rgb(150, 232, 28);
+        }
+
+        .horarios {
+            padding-top: 12px;
+            cursor: pointer;
+        }
+
+        #logo {
+            height: 100px;
+            padding-top: 20px;
+        }
+
+        header {
+            background: linear-gradient(orange -35%, #cdcdcd 70%);
+        }
+
+        .contactos {
+            padding-top: 10px;
+        }
+
+        .menu-pic {
+            height: 75%;
+            margin-right: 15px;
+            margin-left: 15px;
+            background: white;
+            border-radius: 12px;
+        }
+
+        .responsive {
+            width: 100% !important;
+        }
+
+        .hero-content p {
+            font-size: 14px;
+            font-weight: 400;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h3 {
+            color: white;
+            text-align: center;
+        }
+
+        @media only screen and (min-width: 800px) {
+            .responsive {
+                width: 50% !important;
+            }
+
+            /* .cabecera{
+            width: 50%;
+        } */
+            .neon {
+                font-size: 2rem;
+            }
+
+            .hero-button {
+                height: 70px;
+            }
+
+            .hero-content h3 {
+                width: 50% !important;
+            }
+
+            .p-hero {
+                width: 50%;
+            }
+        }
+
+        .shadow {
+            box-shadow: 0px 0px 5px var(--shadow-color);
+        }
+
+        .carousel-item {
+            height: 180px;
+        }
+
+        .carousel-inner {
+            max-height: 90%;
+            border-radius: 25px;
+        }
+
+        .slider-1 {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
+                url(promoEjemplo.webp);
+            cursor: pointer;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .slider-2 {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
+                url(poster.jpg);
+            cursor: pointer;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .slider-3 {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
+                url(featured3.jpg);
+            cursor: pointer;
+            background-position: center;
+            background-size: cover;
+        }
+
+        .tradicionales {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
+                url(featured3.jpg);
+        }
+
+        .especiales {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
+                url(featured2.jpg);
+        }
+
+        .super-especiales {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
+                url(featured.jpg);
+        }
+
+        .rellenas {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
+                url(featured3.jpg);
+        }
+
+        .vegan {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
+                url(featured3.jpg);
+        }
+
+        .otros {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
+                url(featured3.jpg);
+        }
+
+        .categoria-container {
+            cursor: pointer;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 0 1rem;
+            height: 100%;
+            border-radius: 10px;
+            font-size: 1.5rem;
+        }
+
+        .row-cat {
+            height: 33%;
+            padding-bottom: 10px;
+            --bs-gutter-x: 0.5rem;
+        }
+
+        .carousel {
+            height: 25vh;
+            width: 90%;
+        }
+
+        .div-centrado {
+            height: 100%;
+            width: 85%;
+        }
+
+        #modal-hr {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.35s ease-in;
+        }
+
+        #modal-hr.is-visible {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #modal-map {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.8);
+            cursor: pointer;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.35s ease-in;
+        }
+
+        #modal-map.is-visible {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .item-combo {
+            border: dotted;
+            border-color: #9ba2a2;
+            border-width: thin;
+
+        }
+
+        .item-foto img {
+            height: 50px;
+        }
+
+        .item-foto {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .item-combo {
+            border-radius: 20px;
+            border: solid;
+            padding: 10px;
+            display: flex;
+            background-color: #f0f8ff;
+        }
+
+        .local-carta-nombre-plato {
+            text-transform: uppercase;
+            font-size: 16px;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .plato-descripcion {
+            color: #5b5b5b;
+            text-overflow: ellipsis;
+            /* overflow: hidden; */
+            display: -webkit-box;
+            -webkit-line-clamp: 5;
+            line-height: 20px;
+            font-family: Roboto;
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        .local-carta-atributos-plato-badge {
+            background-color: initial;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 10px 0;
+            margin: 0;
+            color: #777;
+        }
+
+        .accordion-button::after {
+            background-image: url(../public/png/click.gif)
+        }
+
+        #spiner {
+            display: none;
+            position: absolute;
+            top: 50%;
+            right: 50%;
+        }
+
+        #spinerP {
+            display: none;
+            position: absolute;
+            top: 50%;
+            right: 50%;
+        }
+
+        /* #address-browser{
+            display: none;
+        } */
+        #SiDelivery {
+            display: none;
+        }
+
+        #modUbi {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+            color: red;
+            text-decoration: underline;
+        }
+
+        #info-takeAway {
+            padding-top: 20px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding-bottom: 10px;
+        }
+
+        #info-delivery {
+            padding-top: 20px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding-bottom: 10px;
+        }
+
+        #takeAway {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #container-delivery {
+            display: none;
+        }
+
+        #container-takeAway {
+            display: none;
+        }
+
+        #direccion {
+            font-weight: bolder;
+            max-width: 100%;
+        }
+
+        .modal {
+            --bs-modal-zindex: 900;
+        }
+
+        .spannd {
+            background-color: #ffb8b8;
+            border-radius: 10px;
+            color: red;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-weight: bold;
+            font-size: small;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+
+        .slick-slide {
+            text-align: center;
+            font-size: 14px;
+            line-height: 16px;
+        }
+
+        .form-floating>label {
+            text-align: center;
+        }
+
+        /* .item-categoria{
+    background-color: #f88b0f;
+    margin: 0 10px;
+    padding: 0.3em 1em;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    border: 2px solid;
+} */
+        .contenedor-categorias {
+            height: 90vh;
+            overflow-y: scroll;
+        }
+
+        .subtitulos {
+            text-shadow: 0 0 black;
+            color: #fd0303;
+            text-transform: uppercase;
+            font-family: 'PT Sans Narrow', sans-serif;
+            font-weight: bold;
+            padding-left: 10px;
+        }
+
+        .modal-footer {
+            padding: 0px;
+        }
+
+        .modal-footer .form-floating {
+            width: 100%;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="styles2.css"> -->
+    <!-- <script src="timedropper-jquery.js"></script> -->
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script> -->
+
+    <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/> -->
+    <!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
+
+    <script>
+        let map;
+        let center = { lat: -34.71972059601197, lng: -58.59777325844051 }
+        const defaultBounds = {
+            north: center.lat + 0.1,
+            south: center.lat - 0.1,
+            east: center.lng + 0.1,
+            west: center.lng - 0.1,
+        };
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: center,
+                zoom: 8,
+            });
+            const marker = new google.maps.Marker({
+                position: null,
+                map,
+            })
+            const input = document.getElementById("input-autocomplete");
+            const options = {
+                bounds: defaultBounds,
+                componentRestrictions: { country: "ar" },
+                fields: ["address_components", "geometry", "icon", "name"],
+                strictBounds: false,
+                types: ["address"],
+
+            };
+            const autocomplete = new google.maps.places.Autocomplete(input, options);
+            autocomplete.addListener("place_changed", () => {
+                marker.setMap(null)
+                const place = autocomplete.getPlace()
+                const { geometry } = place
+                const { viewport, location } = geometry
+
+                map.setCenter(location)
+                map.setZoom(15)
+                marker.setMap(map)
+                marker.setPosition(location)
+                let origen = new google.maps.LatLng(-34.7450211507921, -58.59126505084713);
+                let destino = new google.maps.LatLng(location);
+
+                var service = new google.maps.DistanceMatrixService();
+                service.getDistanceMatrix(
+                    {
+                        origins: [origen],
+                        destinations: [destino],
+                        travelMode: 'DRIVING',
+                    }, callback);
+
+                function callback(response, status) {
+                    if (status == 'OK') {
+                        let boton = document.getElementById('boton-action')
+                        var origins = response.originAddresses;
+                        var destinations = response.destinationAddresses;
+                        for (var i = 0; i < origins.length; i++) {
+                            var results = response.rows[i].elements;
+                            for (var j = 0; j < results.length; j++) {
+                                var element = results[j];
+                                var distance = element.distance.value;
+                                var from = origins[i];
+                                var to = destinations[j];
+                                if (distance < 3000) {
+                                    document.getElementById('NoDelivery').style.display = 'none'
+                                    let html = `<a class="btn btn-outline-danger"  role="button" onclick="resetUbi()">❌</a>
+                                <a class="btn btn-outline-success"  role="button" onclick="burnAddress(true)">✔</a>`
+                                    boton.innerHTML = html
+                                } else {
+                                    document.getElementById('NoDelivery').style.display = 'block';
+                                    let html = `<a class="btn btn-outline-danger"  role="button" onclick="resetUbi()">❌</a>
+                                <a class="btn btn-outline-success"  role="button" onclick="burnAddress(false)">✔</a>`
+                                    boton.innerHTML = html
+                                }
+                            }
+                        }
+                    }
+                }
+            })
+        }
+
+    </script>
+    <link rel="stylesheet" href="./css/stylesheet.css" type="text/css" charset="utf-8" />
+</head>
+
+<body class="responsive shadow ng-scope" style="margin:auto;">
+
+    <div class="hero-container">
+        <video src="./png/morfi-video.mp4" autoplay muted loop poster="./png/poster.jpg"></video>
+        <div class="overlay">
+
+            <div class="hero-content row">
+                <img src="./png/logosinfondo.jpg" alt="" style="
+                height: 200px;
+    width: 350px;
+    border-radius: 70px;
+            ">
+                <h3>El Menu en tus manos</h3>
+                <p class="p-hero">Nacho's Pizza digitalizo su menu, ahora vas a poder armar tu pedido y elegir el medio
+                    de pago de forma sencilla y rapida a través de la app.</p>
+                <div class="col-10 hero-container-button">
+                    <button class="hero-button" id="hero-button">
+                        <div class="neon">IR A PEDIR </div>
+                    </button>
+                </div>
+
+            </div>
+            <div class="spinner-border text-warning " role="status" id="spiner">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="menu" id="menu">
+        <header>
+            <div class="container noch-menu">
+                <div class="row menu-pic">
+                    <div class="col-4">
+                        <img src="./png/logosinfondo.jpg" alt="" id="logo">
+                    </div>
+                    <div class="col-8"
+                        style="display: flex; flex-direction: column; align-items: flex-end; font-size: 12px;">
+                        <div class="contactos">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-instagram" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-whatsapp" viewBox="0 0 16 16">
+                                <path
+                                    d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-telephone" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-info-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                            </svg>
+                        </div>
+                        <div class="direccion">
+                            <a href="https://goo.gl/maps/Bn4xMZQPYxCFX8si6">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-geo-alt" viewBox="0 0 16 16">
+                                    <path
+                                        d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg>
+                                Cepeda 4343, Gonzalez Catan.</a>
+                        </div>
+                        <div class="horarios">
+                            <span class="myLabel ng-scope abierto" id="mylabel">
+                                <b class="ng-binding" id="open">Cerrado</b></span>
+                            <div id="verhr" style="display: inline">
+                                <span class="clickeable" style="padding-left: 7px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-clock" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                                        <path
+                                            d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z" />
+                                    </svg>VerHorarios</span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- <div id="slick-destacado-container">
+                <div id="slick-destacado">
+
+                </div>
+            </div> -->
+
+        <div id="slick-destacado-container">
+            <h2 class="subtitulos" style="padding-left: 20px;">Promociónes</h2>
+            <div id="slick-promociones">
+
+            </div>
+        </div>
+
+        <div class="container" id="enlaces">
+        </div>
+
+        <div class="container-cat" id="container-cat">
+
+            <div class="accordion accordion-flush contenedor-categorias" id="accordionFlushExample" data-bs-offset="50"
+                data-bs-target="#enlaces" class="scrollspy-example" tabindex="0" data-bs-spy="scroll">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="hamburguesas">
+                        <button class="accordion-button collapsed" id="btn-hamburguesas" type="button">
+                            HAMBURGUESAS
+                        </button>
+                    </h2>
+                    <div id="flush-hamburguesas" class="accordion-collapse collapse show"
+                        aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="papas-fritas">
+                        <button class="accordion-button collapsed " id="btn-papas-fritas" type="button">
+                            PAPAS FRITAS
+                        </button>
+                    </h2>
+                    <div id="flush-papas-fritas" class="accordion-collapse collapse show"
+                        aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="ensaladas">
+                        <button class="accordion-button collapsed" id="btn-ensaladas" type="button">
+                            ENSALADAS
+                        </button>
+                    </h2>
+                    <div id="flush-ensaladas" class="accordion-collapse collapse show"
+                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="aros">
+                        <button class="accordion-button collapsed" id="btn-aros" type="button">
+                            AROS DE CEBOLLA
+                        </button>
+                    </h2>
+                    <div id="flush-aros" class="accordion-collapse collapse show" aria-labelledby="flush-headingThree"
+                        data-bs-parent="#accordionFlushExample">
+
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="nuggets">
+                        <button class="accordion-button collapsed" id="btn-nuggets" type="button">
+                            NUGGETS
+                        </button>
+                    </h2>
+                    <div id="flush-nuggets" class="accordion-collapse collapse show"
+                        aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="p-h">
+                        <button class="accordion-button collapsed" id="btn-p-h" type="button">
+                            Postres y Helados
+                        </button>
+                    </h2>
+                    <div id="flush-p-h" class="accordion-collapse collapse show" aria-labelledby="flush-headingThree"
+                        data-bs-parent="#accordionFlushExample">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class=" container modal" id="modal-hr" data-animation="slideInOutLeft">
+            <div class="modal-dialog modal-confirm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title w-100">Horarios de atencion</h4>
+                        <svg id="close-modal-hr" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                        </svg>
+                        <!-- <div class="icon-box">
+                                <img src="green-checkmark-line.svg" style="width: 66px;" alt="">
+                            </div>	 -->
+                    </div>
+                    <div class="modal-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Lunes</th>
+                                    <td>de 11:30 a 15:30
+                                        de 18:30 a 23:58</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Martes</th>
+                                    <td>de 11:30 a 15:30
+                                        de 18:30 a 23:58</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Miercoles</th>
+                                    <td>de 11:30 a 15:30
+                                        de 18:30 a 23:58</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Jueves</th>
+                                    <td>de 11:30 a 15:30
+                                        de 18:30 a 23:58</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Viernes</th>
+                                    <td>de 11:30 a 15:30
+                                        de 18:30 a 23:58</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Sabado</th>
+                                    <td>de 11:30 a 15:30
+                                        de 18:30 a 23:58</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Domingo</th>
+                                    <td>de 11:30 a 15:30
+                                        de 18:30 a 23:58</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Feriados</th>
+                                    <td>de 11:30 a 15:30
+                                        de 18:30 a 23:58</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class=" container modal" id="modal-ubicacion" data-animation="slideInOutLeft">
+                <div class="modal-dialog modal-confirm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title w-100">modalUbi</h4>
+                            <svg id="close-modal-ubi" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+                            </svg>
+    
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="input-autocomplete">
+                                <label for="input-autocomplete">Calle y altura</label>
+                            </div>
+                            <div class="form-floating mb-3" style="    display: flex; align-items: stretch;">
+                                <input type="text" class="form-control" id="input-entrecalles" required>
+                                <label for="input-entrecalles">Entrecalles</label>
+                            </div>
+                            <div id="map">
+                                
+                            </div>
+                        </div>
+                        <p id="indicacion"></p>
+                        <div class="modal-footer" id="boton-action">
+                            <a class="btn btn-outline-danger"  role="button" onclick="resetUbi()">❌</a>
+                            <a class="btn btn-outline-success"  role="button" onclick="burnAddress('')">✔</a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+    </div>
+
+    <div class="hora container">
+        <div class="cabecera">
+            <div class="alcarrito " style="padding-right: 20px;
+            padding-left: 20px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+                </svg>
+            </div>
+            <h2 class="tcategoria"><strong> Atras</strong></h2>
+        </div>
+        <h5 style="color: black">Metodo de pago:</h5>
+        <div class="pay">
+
+            <div class="efectivo" id="pay-ef">
+                <img src="./png/eft.jpg" alt="">
+            </div>
+            <div class="mp" id="pay-mp">
+                <img src="./png/MP.jpg" onclick="checkout.open()" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class=" agregados" id="detalles">
+    </div>
+
+    <div class="carrito">
+        <div class="d-flex justify-content-center row">
+            <div>
+                <div class="cabecera">
+                    <div class="atras almenu">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                            class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+                        </svg>
+                    </div>
+                    <h4>Mi Menu</h4>
+                </div>
+                <div class="newiteamcarrito">
+
+                </div>
+                <div class=" container-fluid" style="background-color: #ffffff;
+                            box-shadow: 0px 0px 5px 1px black;
+                            border-radius: 20px;
+                            padding-right: 0px;
+                            padding-left: 0;
+                            width: 100%;
+                            height: 110px;
+                            color: #e84e4e;">
+                    <div class="" style="display: flex;
+                            border-bottom: solid #0000001f;
+                            justify-content: space-evenly;
+                            align-items: center;
+                            height: 50%;">
+                        <h5 class=" mt-1 mr-1 ml-1">Total:</h5>
+                        <div class="total">
+
+                        </div>
+                    </div>
+                    <div class="" style="display: flex; height: 50%;border-top: solid #0000001f;">
+                        <div class="seguir-comprando col-6 " onclick="alMenu()" style="text-align: center;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-evenly;
+                                border: solid #0000001f;
+                                border-top: none;">
+                            <span>Seguir comprando</span>
+                        </div>
+                        <div class="pay-button col-6" id="button-modal-map" style="text-align: center;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-evenly;
+                                border: solid #0000001f;
+                                border-top: none;">
+                            <span>Pagar</span>
+                        </div>>
+                        <!-- <button id="irhora" class="btn  btn-block btn-lg ml-2 pay-button" type="button" >Continuar Compra</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class=" container modal" id="modal-map" data-animation="slideInOutLeft">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+
+                <div id="btn-ubi">
+                    <div class="modal-header">
+                        <h3 class="modal-title w-100" style="text-align: center;">¿Retiras por el local o te lo
+                            enviamos?</h3>
+                        <svg id="close-modal-ubi" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                        </svg>
+                    </div>
+                    <div class="row" style="justify-content: space-evenly;">
+                        <div class="col-6 button-entrega" id="btn-take-away">Retiro en tienda(TakeAway)</div>
+                        <div class="col-6 button-entrega" id="btn-delivery">Envio a domicilio(Delivery)</div>
+                    </div>
+                </div>
+                <div class="container" id="address-browser">
+                    <div class="row" id="container-delivery" style="justify-content: center;">
+                        <div id="info-delivery">
+                            <img src="./png/delivery.png" alt="" style="width:50%">
+                            <div class="" id="SiDelivery">
+                                <div class="" style="text-align: center;">
+                                    <span class="d-inline-block text-truncate" class="spannd">
+                                        Te lo llevamos a:
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="" id="NoDelivery">
+                                <div class="" style="text-align: center;">
+                                    <span class="d-inline-block text-truncate" class="spannd" style="color:#ff0000">
+                                        Tu dirección está fuera de la zona de entrega.
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="d-inline-block text-truncate" id="direccion"></span>
+                            <div id="modUbi">
+                                <strong>
+                                    Ingresar domicilioo
+                                </strong>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer" id="boton-action-delivery">
+
+                            <form class="form-floating">
+                                <input type="text" class="form-control" id="nombre" placeholder="nachos" value="">
+                                <label for="nombre">INGRESA TU NOMBRE*💬</label>
+                            </form>
+                            <div class="invalid-feedback" id="noNombre">
+                                completar nombre.
+                            </div>
+                            <form class="form-floating">
+                                <input type="number" class="form-control" id="numero" placeholder="1160235647" value="">
+                                <label for="numero">INGRESA TU NUMERO*📱</label>
+                                <div class="invalid-feedback" id="noNumero">
+                                    ingresar un telefono valido, Ej:1160123987.
+                                </div>
+                            </form>
+                            <a class="btn btn-outline-success" role="button" onclick="irPago('delivery')" style="width: 100%;background: 
+                            #ff0000;">Pagar</a>
+                        </div>
+                    </div>
+                    <div class="row" id="container-takeAway">
+                        <div id="info-takeAway">
+                            <img src="./png/take-away.png" alt="" style="width:50%">
+                            <span>Lo retiras por:</span>
+                        </div>
+                        <div class="" id="takeAway">
+                            <span id="indicacion-sucu" style="color:#ff0000;text-align: center;"></span>
+                            <div class="form-floating" style="width: 100%;">
+                                <select class="form-select" id="select-sucu" aria-label="Floating label select example">
+                                    <option selected value="">selecciona sucursal</option>
+                                    <option value="Morfi Lafe">Laferrere</option>
+                                    <option value="Morfi Cobo">Independencia</option>
+                                </select>
+                                <label for="floatingSelect">Sucursal</label>
+                            </div>
+                            <div class="modal-footer" id="boton-action-takeAway">
+                                <form class="form-floating">
+                                    <input type="text" class="form-control" id="floatingInputValue" name="nombre"
+                                        placeholder="nachos" value="">
+                                    <label for="floatingInputValue">INGRESA TU NOMBRE*💬</label>
+                                </form>
+                                <div class="invalid-feedback" id="noNombre_">
+                                    completar nombre.
+                                </div>
+                                <form class="form-floating">
+                                    <input type="number" class="form-control" id="floatingInputValue" name="numero"
+                                        placeholder="1160235647" value="">
+                                    <label for="floatingInputValue">INGRESA TU NUMERO*📱</label>
+                                </form>
+                                <div class="invalid-feedback" id="invalid-feedback-numero">
+                                    Please choose a username.
+                                </div>
+                                <a class="btn btn-outline-success" role="button" onclick="irPago('takeAway')" style="width: 100%;background: 
+                                #ff0000;">Pagar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="delivery">
+                    <div class="modal-body">
+                        <span id="indicacion"></span>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="input-autocomplete">
+                            <label for="input-autocomplete">Calle y altura</label>
+                        </div>
+
+                        <div class="form-floating mb-3" style="    display: flex; align-items: stretch;">
+                            <input type="text" class="form-control" id="input-entrecalles" required>
+                            <label for="input-entrecalles">Entrecalles</label>
+                        </div>
+
+                        <div id="map">
+
+                        </div>
+                    </div>
+                    <!-- <div class="row" id="NoDelivery">
+                        <div class="col-12" style="text-align: center;">
+                            <span class="d-inline-block text-truncate" class="spannd" >
+                                Tu dirección está fuera de la zona de entrega.
+                            </span>
+                        </div>
+                    </div> -->
+                    <div class="modal-footer" id="boton-action">
+                        <a class="btn btn-outline-danger" role="button" onclick="resetUbi()">❌</a>
+                        <a class="btn btn-outline-success" role="button" onclick="burnAddress('')">✔</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class=" container modal" id="modal-fin" data-animation="slideInOutLeft">
+        <div class="modal-dialog modal-confirm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="icon-box">
+                        <img src="./png/green-checkmark-line.svg" style="width: 66px;" alt="">
+                    </div>
+                    <h4 class="modal-title w-100">Gracias por tu compra!</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">Seras dirigido a whatsap...</p>
+                    <p class="text-center">Para cancelar o modificar el pedido hablar al <img style="width: 30px;"
+                            src="./png/logo_whatsapp.png" alt=""></p>
+                    <p class="text-center">Podes recomendarnos en <img style="width: 30px;"
+                            src="./png/logo_instagram.svg" alt="">subiendo una captura de tu Pizza preferida.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success btn-block" data-dismiss="modal" onclick="location.reload()" disabled
+                        id="fin">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="spinner-border text-warning spiner" role="status" id="spinerP">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+
+    <div class="navegacion-center">
+        <div class="navbar carritoicon" id="efecto" style="background-color: #f88b0f;">
+
+            <div class="icono-carrito">
+                <span class=" top-0  badge rounded-pill bg-danger">
+
+                </span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-cart-check" viewBox="0 0 16 16">
+                    <path
+                        d="M11.354 6.354a.5.5 0 0 0-.708-.708L8 8.293 6.854 7.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                    <path
+                        d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+
+                </svg>
+            </div>
+        </div>
+    </div>
+    <div class="lista ">
+        <div class="cabecera">
+            <div class="atras">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+                </svg>
+            </div>
+            <h2 class="tcategoria"><strong></strong></h2>
+        </div>
+        <div class="row row-cols-2 row-cols-md-4  listap ">
+
+        </div>
+    </div>
+    <script>
+        function verificarHora() {
+            let fecha_actual = new Date()
+            let hr = fecha_actual.getHours()
+            let abierto = [19, 20, 21, 22, 23, 0, 1]
+            let prueba = document.getElementById("mylabel")
+            for (let i = 0; i < abierto.length; i++) {
+                if (abierto[i] == hr) {
+                    document.getElementById("open").innerHTML = "Abierto"
+                    prueba.classList.remove('cerrado');
+                    prueba.classList.add('abierto');
+                    return
+                }
+                else {
+                    document.getElementById("open").innerHTML = "Cerrado"
+                    prueba.classList.remove('abierto');
+                    prueba.classList.add('cerrado');
+                }
+            }
+        }
+        verificarHora()
+
+        const modal_hr = document.getElementById('modal-hr')
+        const modal_ubicacion = document.getElementById('delivery')
+        const ver_hr = document.getElementById("verhr")
+        const btn_ubi = document.getElementById("btn-ubi")
+        const close_hr = document.getElementById("close-modal-hr")
+        const close_ubi = document.getElementById("close-modal-ubi")
+        const div_domicilio = document.getElementById("delivery")
+        const address_browser = document.getElementById("address-browser")
+
+        document.getElementById("btn-delivery").addEventListener("click", function () {
+            document.querySelector("#btn-delivery").classList.add('button-entrega-select');
+            document.querySelector("#btn-take-away").classList.remove('button-entrega-select');
+            document.getElementById('container-delivery').style.display = 'block'
+            document.getElementById('container-takeAway').style.display = 'none'
+            const div_sucursal = document.getElementById("takeAway")
+            address_browser.style.display = 'block'
+            div_sucursal.style.display = 'none'
+            /* div_domicilio.style.display='flex' */
+            /* btn_ubi.style.display='none' */
+
+        })
+        document.getElementById("modUbi").addEventListener("click", function () {
+            /* verUbi() */
+            div_domicilio.style.display = 'flex'
+            address_browser.style.display = 'none'
+            btn_ubi.style.display = 'none'
+            const direccion = document.getElementById("input-autocomplete")
+            const entrecalles = document.getElementById("input-entrecalles")
+            direccion.value = ""
+            entrecalles.value = ""
+
+        })
+
+        document.getElementById("btn-take-away").addEventListener("click", function () {
+            document.querySelector("#btn-take-away").classList.add('button-entrega-select');
+            document.querySelector("#btn-delivery").classList.remove('button-entrega-select');
+            document.getElementById('container-takeAway').style.display = 'block'
+            document.getElementById('container-delivery').style.display = 'none'
+            const div_sucursal = document.getElementById("takeAway")
+            div_sucursal.style.display = 'flex'
+            div_domicilio.style.display = 'none'
+            /* address_browser.style.display='none' */
+            /* btn_ubi.style.display='none' */
+
+        })
+
+
+
+
+        let dir = []
+
+        function burnAddress(rango) {
+            const isVisible = "is-visible";
+
+            const address_browser = document.getElementById("address-browser")
+            const direccion = document.getElementById("input-autocomplete").value
+            const entrecalles = document.getElementById("input-entrecalles").value
+            if (direccion != "" && entrecalles != "") {
+
+                btn_ubi.style.display = 'block'
+                let data = { direccion, entrecalles, rango }
+                localStorage.setItem('dir', JSON.stringify(data))
+                let html = `${direccion},  ${entrecalles}.. Cambiar`
+                document.getElementById('direccion').innerHTML = html
+                address_browser.style.display = 'block'
+                document.getElementById('NoDelivery').style.display = 'none'
+                div_domicilio.style.display = 'none'
+                if (rango == false) {
+                    document.getElementById('boton-action-delivery').style.display = 'none'
+                    document.getElementById('NoDelivery').style.display = 'block';
+                    document.getElementById('SiDelivery').style.display = 'none';
+                    document.getElementById('modUbi').innerHTML = `<strong>Cambiar</strong>`
+                } else {
+                    document.getElementById('boton-action-delivery').style.display = 'block'
+                    document.getElementById('modUbi').innerHTML = `<strong>Cambiar</strong>`
+                }
+            } else {
+                document.getElementById('indicacion').innerHTML = "Completar todos los campos."
+            }
+        }
+
+        function usarUbi() {
+            dir = JSON.parse(localStorage.getItem('dir'))
+            console.log(dir)
+        }
+
+        function resetUbi() {
+
+            btn_ubi.style.display = 'block'
+            const isVisible = "is-visible";
+            /* document.querySelector("#modal-map.is-visible").classList.remove(isVisible); */
+            const address_browser = document.getElementById("address-browser")
+            const direccion = document.getElementById("input-autocomplete")
+            const entrecalles = document.getElementById("input-entrecalles")
+            localStorage.removeItem('dir')
+            direccion.value = ""
+            entrecalles.value = ""
+            address_browser.style.display = 'none'
+            document.getElementById('boton-action-delivery').style.display = 'none'
+            document.getElementById('NoDelivery').style.display = 'none';
+            div_domicilio.style.display = 'none'
+            document.getElementById('indicacion').innerHTML = ""
+            document.querySelector("#btn-delivery").classList.remove('button-entrega-select');
+            document.getElementById('modUbi').innerHTML = `<strong>Ingresar direccion</strong>`
+            document.getElementById('direccion').innerHTML = ''
+        }
+
+
+
+
+        function obtenerLocalStorage() {
+            if (localStorage.getItem('dir')) {
+                dir = JSON.parse(localStorage.getItem('dir'))
+                if (dir.rango) {
+                    document.getElementById('SiDelivery').style.display = 'block'
+                    document.getElementById('NoDelivery').style.display = 'none'
+                    document.getElementById('boton-action-delivery').style.display = 'block'
+                    document.getElementById('modUbi').innerHTML = `<strong>Cambiar</strong>`
+                } else {
+                    document.getElementById('SiDelivery').style.display = 'none'
+                    document.getElementById('NoDelivery').style.display = 'block';
+                    document.getElementById('modUbi').innerHTML = `<strong>cambiar</strong>`
+                }
+                let html = `${dir.direccion},  ${dir.entrecalles}
+            `
+                document.querySelector("#btn-delivery").classList.add('button-entrega-select');
+                document.getElementById('boton-action').style.display = 'block'
+                document.getElementById('direccion').innerHTML = html
+                document.getElementById('container-delivery').style.display = 'block'
+
+                const address_browser = document.getElementById("address-browser")
+                address_browser.style.display = 'block'
+            } else {
+                document.getElementById('modUbi').innerHTML = `<strong>Ingresar direccion</strong>`
+            }
+        }
+        obtenerLocalStorage()
+
+
+        function verHr() {
+            const isVisible = "is-visible";
+            modal_hr.classList.add(isVisible)
+        }
+
+
+
+        function verUbi() {
+            const isVisible = "is-visible";
+            modal_ubicacion.classList.add(isVisible)
+        }
+
+        ver_hr.addEventListener('click', verHr)
+        /*         verUbiModal.addEventListener('click',verUbi) */
+
+        close_hr.addEventListener('click', () => {
+            const isVisible = "is-visible";
+            document.querySelector("#modal-hr.is-visible").classList.remove(isVisible);
+        })
+
+        close_ubi.addEventListener('click', () => {
+            const isVisible = "is-visible";
+            document.querySelector("#modal-map.is-visible").classList.remove(isVisible);
+        })
+
+        document.addEventListener("click", e => {
+            if (e.target == document.querySelector("#modal-hr.is-visible")) {
+                const isVisible = "is-visible";
+                document.querySelector("#modal-hr.is-visible").classList.remove(isVisible);
+            }
+        });
+        /* document.addEventListener("click", e => {
+                                                                                                                                                    if (e.target == document.querySelector("#modal-ubicacion.is-visible")) {
+                                                                                                                                                        const isVisible = "is-visible";
+                                                                                                                                                    document.querySelector("#modal-ubicacion.is-visible").classList.remove(isVisible);
+                                                                                                                                                    }
+                                                                                                                                                }); */
+    </script>
+
+
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHS-Nfqfsw3BxhdZcqXBf4gUXbweqvw1E&libraries=places&callback=initAutocomplete" async defer></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+    <!-- 
+    The `defer` attribute causes the callback to execute after the full HTML
+    document has been parsed. For non-blocking uses, avoiding race conditions,
+    and consistent behavior across browsers, consider loading using Promises
+    with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHS-Nfqfsw3BxhdZcqXBf4gUXbweqvw1E&libraries=places&callback=initMap"
+        async defer></script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHS-Nfqfsw3BxhdZcqXBf4gUXbweqvw1E&libraries=places&callback=initAutocomplete" async defer></script> -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script> -->
+
+
+    <!-- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
+
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    <script>
+
+        window.initMap = initMap;
+        // Create a bounding box with sides ~10km away from the center point
+
+    </script>
+    <script type="module" src="index.js"></script>
+
+</body>
+
+</html>

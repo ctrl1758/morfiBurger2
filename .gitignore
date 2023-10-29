@@ -1,0 +1,13 @@
+node_modules
+slick
+*.Identifier
+Dockerfile
+*.toml
+firebase.json
+morfiburgerjson.json
+*.env
+.dockerignore
+glider-compat.min.js
+png
+*.woff
+*.woff2
